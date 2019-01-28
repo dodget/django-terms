@@ -48,7 +48,7 @@ class Term(Model):
     def get_absolute_url(self):
         if self.url:
             return self.url
-        return reverse('term', kwargs={'pk': self.pk})
+        return reverse_lazy('term', kwargs={'pk': self.pk})
 
     def name_variants(self, variant_slice=slice(0, None)):
         return self.name.replace('&', '&amp;').split('|')[variant_slice]
